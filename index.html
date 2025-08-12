@@ -3,13 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ratings Explorer</title>
+  <title>View Rank</title>
+  <link rel="icon" type="image/png" sizes="180x180" href="logo.png">
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
-    <h1>Ratings Explorer</h1>
+
+    <div class="site-title">
+      <img src="logo.png">
+    </div>
+
 
     <!-- Navigation Links -->
     <nav class="main-nav">
@@ -51,6 +56,7 @@
   </div>
 
   <div id="resultsContainer" class="results-grid"></div>
+
 <div style="text-align:center; margin: 20px 0;">
   <button id="loadMoreBtn" style="
     padding: 10px 16px;
@@ -63,6 +69,40 @@
   ">Load More</button>
 </div>
 
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <div class="footer-about">
+      <h3>View Rank</h3>
+      <p>Your one-stop destination to explore trending movies & series ratings in real-time.
+         Updated daily, powered by trusted APIs.</p>
+      <p><em>"Discover it. Rate it. Love it."</em></p>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>Email: <a href="mailto:contact@viewrank.com">contact@viewrank.com</a></p>
+      <p>Follow us: 
+        <a href="#" target="_blank">Facebook</a> | 
+        <a href="#" target="_blank">Twitter</a> | 
+        <a href="#" target="_blank">Instagram</a>
+      </p>
+    </div>
+
+    <div class="footer-disclaimer">
+      <h4>Data & Disclaimer</h4>
+      <p>All ratings and media data are sourced from 
+        <a href="https://www.themoviedb.org/" target="_blank">TMDB</a> and 
+        <a href="https://www.omdbapi.com/" target="_blank">OMDb</a>. 
+        We do not host or stream any content — only provide rating insights.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> View Rank. All rights reserved.</p>
+  </div>
+</footer>
 
   <script src="script.js"></script>
 </body>
