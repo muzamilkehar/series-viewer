@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ratings Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Ratings Explorer</h1>
+
+    <!-- Navigation Links -->
+    <nav class="main-nav">
+      <a href="#" id="navHome">Home</a>
+      <a href="#" id="navMovies">Movies</a>
+      <a href="#" id="navSeries">Series</a>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input id="searchInput" type="search" placeholder="Search movies or series (e.g. Breaking Bad)" />
+      <button id="searchBtn">Search</button>
+      <div id="searchSpinner" class="spinner hidden" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main>
+    <p id="message" class="muted"></p>
+    <div id="resultsContainer" class="results-grid" aria-live="polite"></div>
+  </main>
+
+  <!-- Modal -->
+  <div id="detailsModal" class="modal hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content" role="document">
+      <button id="modalClose" class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-header">
+        <img id="modalPoster" class="modal-poster" alt="Poster"/>
+        <div class="modal-info">
+          <h2 id="modalTitle"></h2>
+          <p id="modalMeta" class="muted"></p>
+          <p id="modalPlot"></p>
+        </div>
+      </div>
+      <div id="chartArea" class="chart-area">
+        <div id="chartSpinner" class="spinner hidden"></div>
+        <canvas id="ratingsChart" aria-label="Ratings chart" role="img"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultsContainer" class="results-grid"></div>
+<div style="text-align:center; margin: 20px 0;">
+  <button id="loadMoreBtn" style="
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  ">Load More</button>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

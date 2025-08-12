@@ -1,0 +1,281 @@
+:root {
+  --bg: #0f0f10;
+  --panel: #171717;
+  --muted: #bdbdbd;
+  --accent: #ff6b3d;
+  --card: #1b1b1b;
+  --gold: #ffcc00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: #fff;
+}
+
+/* Header & Navigation */
+header {
+  padding: 18px 12px;
+  background: #111;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.main-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.main-nav a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.main-nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#searchInput {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  min-width: 300px;
+  background: #121212;
+  color: #fff;
+}
+
+#searchBtn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#searchBtn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  border-top-color: var(--gold);
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.muted {
+  color: var(--muted);
+  text-align: center;
+  margin: 8px 0;
+}
+
+/* Results Grid */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  padding: 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #222;
+}
+
+.card__title {
+  padding: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.card__sub {
+  padding: 0 10px 10px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Skeleton Loader */
+.skeleton {
+  background: linear-gradient(90deg, #232323, #1b1b1b, #232323);
+  height: 100%;
+  animation: shimmer 1s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 200;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--panel);
+  border-radius: 10px;
+  width: 95%;
+  max-width: 1100px;
+  color: #fff;
+  max-height: 90vh;
+  overflow: auto;
+  padding: 18px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.modal-poster {
+  width: 180px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.modal-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.modal-info h2 {
+  margin: 0 0 8px 0;
+}
+
+.modal-info p {
+  margin: 6px 0;
+  color: var(--muted);
+}
+
+/* Chart Area */
+.chart-area {
+  margin-top: 12px;
+  background: #0b0b0b;
+  padding: 12px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.chart-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#ratingsChart {
+  display: block;
+  min-height: 420px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 720px) {
+  .card img {
+    height: 180px;
+  }
+  .modal-header {
+    flex-direction: column;
+  }
+  .modal-poster {
+    width: 100%;
+    max-width: 320px;
+  }
+  .chart-area canvas {
+    height: 320px !important;
+  }
+}
