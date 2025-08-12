@@ -6,6 +6,9 @@ const TMDB_TREND_URL = `https://api.themoviedb.org/3/trending/all/day?api_key=${
 const TMDB_MOVIE_TREND_URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${TMDB_API_KEY}`;
 const TMDB_SERIES_TREND_URL = `https://api.themoviedb.org/3/trending/tv/day?api_key=${TMDB_API_KEY}`;
 
+// ===== For automatic adding new year in footer //
+document.getElementById('year').textContent = new Date().getFullYear();
+
 // ===== DOM =====
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
@@ -442,3 +445,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
   currentSection = 'home';
   loadRandomMixed(12, false);
 });
+
