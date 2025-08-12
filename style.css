@@ -29,6 +29,16 @@ header {
   gap: 10px;
 }
 
+.site-title img {
+  height: 200px; /* match your design */
+  margin-bottom: -60px;
+  margin-top: -40px;
+  box-sizing: border-box;
+  width: auto;
+  cursor: pointer;
+}
+
+
 header h1 {
   margin: 0;
   font-size: 1.2rem;
@@ -101,6 +111,151 @@ header h1 {
 
 .hidden {
   display: none;
+}
+
+/* Site title styling */
+.site-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff4444;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Footer Base */
+.site-footer {
+  background: linear-gradient(180deg, #111, #0a0a0a);
+  color: #ccc;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding-top: 20px;
+}
+
+/* Footer Layout */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Footer Sections */
+.footer-about, .footer-links, .footer-contact {
+  flex: 1 1 250px;
+  margin: 10px 0;
+}
+
+.footer-about h3 {
+  color: #ff6b3d;
+  margin-bottom: 10px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+/* Links */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin: 6px 0;
+}
+
+.footer-links a, .footer-contact a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+  color: #ff6b3d;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  padding: 12px 0;
+  margin-top: 20px;
+  font-size: 0.85rem;
+}
+
+.site-footer {
+  background: linear-gradient(180deg, #111, #0a0a0a);
+  color: #ccc;
+  font-size: 0.9rem;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer-about, .footer-contact, .footer-disclaimer {
+  flex: 1 1 300px;
+  margin: 10px;
+}
+
+.footer-about h3 {
+  color: #ff6b3d;
+  margin-bottom: 10px;
+}
+
+.footer-contact h4,
+.footer-disclaimer h4 {
+  color: #ffcc00;
+  margin-bottom: 8px;
+}
+
+.footer-contact a,
+.footer-disclaimer a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-contact a:hover,
+.footer-disclaimer a:hover {
+  color: #ff6b3d;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  padding: 12px 0;
+  margin-top: 20px;
+  font-size: 0.85rem;
+}
+
+/* Make Footer Stick at Bottom */
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 @keyframes spin {
