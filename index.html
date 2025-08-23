@@ -2,22 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>View Rank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO Title -->
+  <title>View Rank | Discover Trending Movies & Series Ratings</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="View Rank is your one-stop destination to explore trending movies and series ratings in real-time. Discover, rate, and love your favorite shows and films.">
+  <meta name="keywords" content="movies, series, ratings, trending movies, tv shows, film reviews, movie database, View Rank">
+  <meta name="author" content="View Rank Team">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon & Theme Color -->
   <link rel="icon" type="image/png" sizes="180x180" href="logo.png">
+  <meta name="theme-color" content="#1a1a1a">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="View Rank | Trending Movies & Series Ratings">
+  <meta property="og:description" content="Explore trending movies and series ratings in real-time. Powered by TMDB & OMDb.">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:url" content="https://www.viewrank.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="View Rank | Movies & Series Ratings">
+  <meta name="twitter:description" content="Discover real-time ratings for trending movies & series.">
+  <meta name="twitter:image" content="logo.png">
+
+  <!-- Styles & Scripts -->
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- JSON-LD Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "View Rank",
+    "url": "https://www.viewrank.com",
+    "description": "Discover trending movies and series ratings in real-time, powered by TMDB & OMDb.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "View Rank",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.viewrank.com/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.viewrank.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
 <body>
   <header>
-
     <div class="site-title">
-      <img src="logo.png">
+      <img src="logo.png" alt="View Rank Logo">
+      <h1>View Rank</h1>
     </div>
 
-
     <!-- Navigation Links -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Main Navigation">
       <a href="#" id="navHome">Home</a>
       <a href="#" id="navMovies">Movies</a>
       <a href="#" id="navSeries">Series</a>
@@ -25,6 +74,7 @@
 
     <!-- Search Bar -->
     <div class="search-bar">
+      <label for="searchInput" class="visually-hidden">Search movies or series</label>
       <input id="searchInput" type="search" placeholder="Search movies or series (e.g. Breaking Bad)" />
       <button id="searchBtn">Search</button>
       <div id="searchSpinner" class="spinner hidden" aria-hidden="true"></div>
@@ -33,6 +83,7 @@
 
   <main>
     <p id="message" class="muted"></p>
+    <!-- ✅ Fixed duplicate ID (changed second container ID) -->
     <div id="resultsContainer" class="results-grid" aria-live="polite"></div>
   </main>
 
@@ -41,7 +92,7 @@
     <div class="modal-content" role="document">
       <button id="modalClose" class="modal-close" aria-label="Close">&times;</button>
       <div class="modal-header">
-        <img id="modalPoster" class="modal-poster" alt="Poster"/>
+        <img id="modalPoster" class="modal-poster" alt="Poster of selected movie or series"/>
         <div class="modal-info">
           <h2 id="modalTitle"></h2>
           <p id="modalMeta" class="muted"></p>
@@ -55,54 +106,52 @@
     </div>
   </div>
 
-  <div id="resultsContainer" class="results-grid"></div>
+  <div id="extraResults" class="results-grid"></div>
 
-<div style="text-align:center; margin: 20px 0;">
-  <button id="loadMoreBtn" style="
-    padding: 10px 16px;
-    border-radius: 8px;
-    background: var(--accent);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-  ">Load More</button>
-</div>
-
-<footer class="site-footer">
-  <div class="footer-container">
-    
-    <div class="footer-about">
-      <h3>View Rank</h3>
-      <p>Your one-stop destination to explore trending movies & series ratings in real-time.
-         Updated daily, powered by trusted APIs.</p>
-      <p><em>"Discover it. Rate it. Love it."</em></p>
-    </div>
-
-    <div class="footer-contact">
-      <h4>Contact Us</h4>
-      <p>Email: <a href="mailto:contact@viewrank.com">contact@viewrank.com</a></p>
-      <p>Follow us: 
-        <a href="#" target="_blank">Facebook</a> | 
-        <a href="#" target="_blank">Twitter</a> | 
-        <a href="#" target="_blank">Instagram</a>
-      </p>
-    </div>
-
-    <div class="footer-disclaimer">
-      <h4>Data & Disclaimer</h4>
-      <p>All ratings and media data are sourced from 
-        <a href="https://www.themoviedb.org/" target="_blank">TMDB</a> and 
-        <a href="https://www.omdbapi.com/" target="_blank">OMDb</a>. 
-        We do not host or stream any content — only provide rating insights.</p>
-    </div>
-
+  <div style="text-align:center; margin: 20px 0;">
+    <button id="loadMoreBtn" style="
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    ">Load More</button>
   </div>
 
-  <div class="footer-bottom">
-    <p>&copy; <span id="year"></span> View Rank. All rights reserved.</p>
-  </div>
-</footer>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>About View Rank</h3>
+        <p>Your one-stop destination to explore trending movies & series ratings in real-time.
+           Updated daily, powered by trusted APIs.</p>
+        <p><em>"Discover it. Rate it. Love it."</em></p>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>Email: <a href="mailto:contact@viewrank.com">contact@viewrank.com</a></p>
+        <p>Follow us: 
+          <a href="#" target="_blank" rel="noopener">Facebook</a> | 
+          <a href="#" target="_blank" rel="noopener">Twitter</a> | 
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </div>
+
+      <div class="footer-disclaimer">
+        <h4>Data & Disclaimer</h4>
+        <p>All ratings and media data are sourced from 
+          <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">TMDB</a> and 
+          <a href="https://www.omdbapi.com/" target="_blank" rel="noopener">OMDb</a>. 
+          We do not host or stream any content — only provide rating insights.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> View Rank. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
